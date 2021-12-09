@@ -5,6 +5,7 @@ const tarefas = document.querySelector('.tarefas');
 function criaLi(){
   const li = document.createElement('li');
   return li;
+  salvarTarefas();
 };
 
 inputTarefa.addEventListener('keypress', function(e){
@@ -41,8 +42,12 @@ btnTarefa.addEventListener('click',function(){
 });
 
 document.addEventListener('click',function(e){
-  const el =e.target;
-  if(el.classList.contains('apagar')){
-    console.log(el.parentElement)
-  }//se esse botão possui a classe apagar é o botão correto
+  const el = e.target;
+  if(el.classList.contains('apagar')){//se esse botão possui a classe apagar é o botão correto
+    el.parentElement.remove();
+  }
 })
+function salvarTarefas(){
+  const liTarefas = tarefas.querySelectorAll('li');
+  console.log(liTarefas);
+}
